@@ -1,0 +1,31 @@
+---
+# basic system checks
+- name: Make sure host kernel is up to date
+  yum:
+    name: kernel
+    state: latest
+- name: Make sure Java is up to date
+  yum:
+    name: java-1.8.0-openjdk.x86_64
+    state: latest
+
+# Deploy app
+- name: Create directory
+  file:
+    path: "/opt/{{application_name}}"
+    state: directory
+- name: Download application
+  get_url:
+    url: "{{nexus_url}}"
+    dest: "/opt/{{application_name}}"
+    backup: yes
+    force: yes
+- name: Configure application
+  template: 
+    src: application.properties.j2
+    dest: "/opt/{{application_name}}/{{application_name}}.properties"
+- name: Configure systemd unit
+  template:
+    src: application.service.j2
+    dest: "/etc/systemd/system/{{application_name}}.service"
+  notify: restart application # calls the handler

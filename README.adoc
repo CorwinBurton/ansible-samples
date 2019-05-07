@@ -1,1 +1,2 @@
 = Sample Ansible Playbooks
+This is a collection of general purpose playbooks

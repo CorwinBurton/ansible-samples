@@ -1,0 +1,20 @@
+---
+- name: Register RHEL host
+  hosts: all
+
+  vars_prompt:
+    - name: "rhn_username"
+      prompt: "RHN Username"
+    - name: "rhn_password"
+      prompt: "Password"
+      private: yes
+    - name: "rhn_pool_id"
+      prompt: "Pool ID"
+
+  tasks:
+    - name: Register host and attach to pools
+      redhat_subscription:
+        state: present
+        username: "{{ rhn_username }}"
+        password: "{{ rhn_password }}"
+        pool_ids: "{{ rhn_pool_id }}"

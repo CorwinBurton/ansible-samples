@@ -1,0 +1,10 @@
+---
+- name: Deploy Jar App
+  hosts: all # set host group here
+
+# necessary on some systems with multiple python versions
+#  vars:
+#    - ansible_python_interpreter: "/usr/bin/python3"
+
+  roles:
+    - role: jar-deploy

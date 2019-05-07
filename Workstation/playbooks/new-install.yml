@@ -1,0 +1,15 @@
+---
+- name: Set up local workstation
+  hosts: "{{ host | default('localhost') }}"
+
+  vars:
+    - ansible_python_interpreter: "/usr/bin/python3"
+
+  roles:
+    - role: fedora
+      when: ansible_distribution == "Fedora"
+      become: true
+    
+    - role: user-config
+      become: false
+
