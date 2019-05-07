@@ -1,0 +1,24 @@
+---
+- name: Import vscode GPG Key
+  rpm_key:
+    key: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+
+- name: Enable vscode Repo
+  blockinfile:
+    path: /etc/yum.repos.d/vscode.repo
+    create: yes
+    state: present
+    block: |
+      [code]
+      name=Visual Studio Code
+      baseurl=https://packages.microsoft.com/yumrepos/vscode
+      enabled=1
+      gpgcheck=1
+      gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+
+- name: Install vscode
+  dnf:
+    name: code
+    state: present
+    update_cache: true

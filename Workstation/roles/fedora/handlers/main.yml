@@ -1,0 +1,16 @@
+---
+# handlers file for fedora
+- name: restart docker
+  systemd:
+    name: docker
+    state: restarted
+
+- name: restart firewalld
+  systemd:
+    name: firewalld
+    state: restarted
+
+- name: restart libvirtd
+  systemd:
+    name: libvirtd
+    state: restarted

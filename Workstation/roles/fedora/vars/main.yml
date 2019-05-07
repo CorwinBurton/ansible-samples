@@ -1,0 +1,11 @@
+---
+fedora_version: 29
+
+my_user: 
+my_name: 
+my_email: 
+
+dnf_packages:
+  - vim
+  # list additional packages here
+
