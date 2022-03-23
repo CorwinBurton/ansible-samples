@@ -1,0 +1,6 @@
+*.retry
+ansible.cfg
+vault.yml
+inventory.yml
+vars.yml
+*.log

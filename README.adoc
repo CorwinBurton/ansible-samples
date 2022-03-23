@@ -1,2 +1,3 @@
 = Sample Ansible Playbooks
-This is a collection of general purpose playbooks
+
+This repo contains basic Ansible examples and sample code. For additional designed to run in Tower, see https://github.com/CorwinBurton/tower-demos
