@@ -1,0 +1,13 @@
+---
+ansible-navigator:
+  execution-environment:
+    container-engine: podman
+    image: ansible/awx-ee
+    enabled: false
+    pull-policy: never
+
+  playbook-artifact:
+    save-as: ./playbook-artifacts/{playbook_name}-artifact-{ts_utc}.json
+
+  logging:
+    level: debug

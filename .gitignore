@@ -4,3 +4,5 @@ vault.yml
 inventory.yml
 vars.yml
 *.log
+venv/
+playbook-artifacts/

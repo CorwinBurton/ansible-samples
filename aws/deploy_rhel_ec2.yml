@@ -22,11 +22,14 @@
     
     - name: Set vpc fact
       set_fact:
-        vpc_id: "{{ vpc_facts['vpc']['id'] }}"
+        vpc_id: "{{ vpc_facts.vpc.id }}"
 
     - name: provision subnet
       amazon.aws.ec2_vpc_subnet:
         vpc_id: "{{ vpc_id }}"
+        cidr: "{{ public_subnet_1_cidr }}"
+        tags:
+          Name: "{{ vpc_subnet_tag }}"
       register: subnet_facts
     
     - name: set subnet fact
@@ -92,6 +95,7 @@
             to_port: 443
             cidr_ip: "0.0.0.0/0"
 
+    # deploy ec2 instances
     - name: deploy ec2 instances
       amazon.aws.ec2_instance:
         name: "{{ item }}"

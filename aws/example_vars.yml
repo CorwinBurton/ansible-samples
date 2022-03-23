@@ -1,0 +1,13 @@
+ec2_region: "us-east-1"
+ec2_names:
+  - host1
+  - host2
+ec2_ami: ""
+ec2_instance_type: "t2.xlarge"
+key_name: ""
+vpc_name: ""
+cidr_block: "10.0.0.0/16"
+ec2_security_group: "default-sg"
+ec2_security_group_ingress: "ingress-sg"
+public_subnet_1_cidr: "10.0.1.0/24"
+vpc_subnet_tag: ""
